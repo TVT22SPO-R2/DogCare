@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "878486844540",
+    "project_id": "dogcare-e3b1a",
+    "storage_bucket": "dogcare-e3b1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878486844540:android:6ce7e55e36575b17e385f9",
+        "android_client_info": {
+          "package_name": "com.example.dogcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDobHXFZoM9tPq3yHjLStTVZr5exk-tcFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
