@@ -14,12 +14,15 @@ import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.firestore.FirebaseFirestore
+import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,27 +46,54 @@ class MainActivity : AppCompatActivity() {
             editText.hint = "Enter pet name"
 
             // List of items to display
-            val items = arrayOf("Item 1", "Item 2", "Item 3")
+            val items = arrayOf("Walked", "Fed", "Washed", "Nails trimmed", "Is the pet alone")
+            val checkedItems = booleanArrayOf(false, false, false, false, false) // Initially non of the items are checked
+
 
             // Create an AlertDialog
             val alertDialogBuilder = AlertDialog.Builder(view.context)
             alertDialogBuilder.setView(dialogView)
             alertDialogBuilder.setTitle("Add Pet") // Set your dialog title here
-            alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
-                val userInput = editText.text.toString()
-                // Handle positive button click if needed
-                dialog.dismiss()
+
+            alertDialogBuilder.setMultiChoiceItems(items, checkedItems) { _, which, isChecked ->
+                checkedItems[which] = isChecked
             }
+            // Set positive button click listener
+            alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
+                val userInput = editText.text.toString() // Get the text entered by the use
+
+                //Get selected items
+                val selectedItems = mutableListOf<String>()
+                for (i in items.indices) {
+                    if (checkedItems[i]) {
+                        selectedItems.add(items[i])
+                    }
+                }
+
+
+                // Add the data to Firebase Firestore
+                val db = FirebaseFirestore.getInstance()
+                val data = hashMapOf(
+                    "petName" to userInput,
+                    "selectedItems" to selectedItems,
+                    "dateTime" to System.currentTimeMillis()
+                )
+                db.collection("pets")
+                    .add(data)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                        // Handle success if needed
+                        dialog.dismiss()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding document", e)
+                        // Handle failure if needed
+                    }
+            }
+
             alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
                 // Handle negative button click if needed
                 dialog.dismiss()
-            }
-
-            // Set up the list of items
-            alertDialogBuilder.setItems(items) { dialog, which ->
-                // Handle item click
-                val selectedItem = items[which]
-                // Do something with the selected item
             }
 
             // Create and show the dialog
@@ -73,21 +103,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -96,3 +115,4 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 }
+
