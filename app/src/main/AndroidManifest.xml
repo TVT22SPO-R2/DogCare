@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DogCare"
         tools:targetApi="31">
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false"> <!-- Set to false as this service does not need to be directly accessible by other apps -->
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
