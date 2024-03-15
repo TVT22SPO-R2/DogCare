@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogcare.R
 
-class PetsAdapter : RecyclerView.Adapter<PetsAdapter.PetsViewHolder>() {
+class PetsAdapter(private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<PetsAdapter.PetsViewHolder>() {
 
     private var petsList: List<String> = listOf()
 
@@ -15,7 +15,11 @@ class PetsAdapter : RecyclerView.Adapter<PetsAdapter.PetsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: PetsViewHolder, position: Int) {
-        holder.bind(petsList[position])
+       val petName = petsList[position]
+        holder.bind(petName)
+        holder.itemView.setOnClickListener {
+            onItemClick(petName)
+        }
     }
 
     override fun getItemCount(): Int = petsList.size

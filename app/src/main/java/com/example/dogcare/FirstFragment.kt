@@ -11,6 +11,7 @@ import com.example.dogcare.databinding.FragmentFirstBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dogcare.R
+import com.example.dogcare.FirstFragmentDirections
 
 class FirstFragment : Fragment() {
 
@@ -30,7 +31,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //Initialize RecycleView and adapter
-        petsAdapter = PetsAdapter()
+        petsAdapter = PetsAdapter { petName ->
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+            findNavController().navigate(action)
+
+        }
 
         //Set layout manager and adapter for RecycleView
         binding.recycleViewPets.layoutManager = LinearLayoutManager(requireContext())
