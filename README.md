@@ -1,2 +1,0 @@
-# DogCare
- Kotilin mobile app
