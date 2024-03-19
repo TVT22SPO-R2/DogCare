@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\content_main.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\custom_dialog_layout.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\custom_dialog_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\item_pet.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\item_pet.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\fragment_second.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "com.example.dogcare.app-mergeDebugResources-4:/layout/fragment_first.xml",
+        "source": "com.example.dogcare.app-main-7:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-mergeDebugResources-4:\\layout\\fragment_first.xml",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_first.xml"
+    }
+]

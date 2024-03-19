@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_fragment_first.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_first.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.dogcare.app-merged_res-5:/menu_menu_main.xml.flat",
+        "source": "com.example.dogcare.app-main-7:/menu/menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_fragment_second.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_second.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\menu_menu_main.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_item_pet.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\item_pet.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-merged_res-5:\\layout_custom_dialog_layout.xml.flat",
+        "source": "C:\\Users\\Niko\\.gradle\\daemon\\8.2\\com.example.dogcare.app-main-7:\\layout\\custom_dialog_layout.xml"
+    }
+]
