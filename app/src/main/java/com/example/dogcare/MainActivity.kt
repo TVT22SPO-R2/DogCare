@@ -16,13 +16,19 @@ import android.view.LayoutInflater
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 import android.util.Log
+import android.widget.CheckBox
+import android.widget.LinearLayout
+import PetsAdapter
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private val TAG = "MainActivity"
+    /*private val TAG = "MainActivity"
+    private val checkBoxes = mutableListOf<CheckBox>()
+    private lateinit var petsAdapter: PetsAdapter
+    private val db = FirebaseFirestore.getInstance()*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,70 +42,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            // Create a layout inflater to inflate the custom layout
-            val inflater = LayoutInflater.from(view.context)
-            val dialogView = inflater.inflate(R.layout.custom_dialog_layout, null)
-
-            // Initialize TextInputEditText
-            val editText = dialogView.findViewById<TextInputEditText>(R.id.textInput)
-            editText.hint = "Enter pet name"
-
-            // List of items to display
-            val items = arrayOf("Walked", "Fed", "Washed", "Nails trimmed", "Is the pet alone")
-            val checkedItems = booleanArrayOf(false, false, false, false, false) // Initially non of the items are checked
-
-
-            // Create an AlertDialog
-            val alertDialogBuilder = AlertDialog.Builder(view.context)
-            alertDialogBuilder.setView(dialogView)
-            alertDialogBuilder.setTitle("Add Pet") // Set your dialog title here
-
-            alertDialogBuilder.setMultiChoiceItems(items, checkedItems) { _, which, isChecked ->
-                checkedItems[which] = isChecked
-            }
-            // Set positive button click listener
-            alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
-                val userInput = editText.text.toString() // Get the text entered by the use
-
-                //Get selected items
-                val selectedItems = mutableListOf<String>()
-                for (i in items.indices) {
-                    if (checkedItems[i]) {
-                        selectedItems.add(items[i])
-                    }
-                }
-
-
-                // Add the data to Firebase Firestore
-                val db = FirebaseFirestore.getInstance()
-                val data = hashMapOf(
-                    "petName" to userInput,
-                    "selectedItems" to selectedItems,
-                    "dateTime" to System.currentTimeMillis()
-                )
-                db.collection("pets")
-                    .add(data)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                        // Handle success if needed
-                        dialog.dismiss()
-                    }
-                    .addOnFailureListener { e ->
-                        Log.w(TAG, "Error adding document", e)
-                        // Handle failure if needed
-                    }
-            }
-
-            alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
-                // Handle negative button click if needed
-                dialog.dismiss()
-            }
-
-            // Create and show the dialog
-            val alertDialog = alertDialogBuilder.create()
-            alertDialog.show()
-        }
 
     }
 
@@ -114,5 +56,9 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+    /*fun updatePets() {
+        FirebaseUtils.fetchPets(db, petsAdapter)
+    }*/
+
 }
 
