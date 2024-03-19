@@ -20,6 +20,11 @@ import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.Locale
 
+
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
+
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
@@ -104,7 +109,6 @@ class FirstFragment : Fragment() {
                 }
 
                 // Add the data to Firebase Firestore
-                val db = FirebaseFirestore.getInstance()
                 val data = hashMapOf(
                     "petName" to userInput,
                     "selectedItems" to selectedItems,
@@ -120,6 +124,14 @@ class FirstFragment : Fragment() {
                     .addOnFailureListener { e ->
                         Log.w(TAG, "Error adding document", e)
                     }
+
+                // Check if "Walked" or "Fed" is one of the selected items and set a reminder
+                selectedItems.forEach { action ->
+                    when (action) {
+                        "Walked" -> setReminder(userInput, "needs to be walked again!")
+                        "Fed" -> setReminder(userInput, "needs to be fed again!")
+                    }
+                }
             }
 
             alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
@@ -131,6 +143,12 @@ class FirstFragment : Fragment() {
             val alertDialog = alertDialogBuilder.create()
             alertDialog.show()
         }
+    }
+
+    private fun setReminder(petName: String, message: String) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            Toast.makeText(requireContext(), "$petName $message", Toast.LENGTH_LONG).show()
+        }, 2000) // 2 second delay for testing
     }
 
     override fun onDestroyView() {
