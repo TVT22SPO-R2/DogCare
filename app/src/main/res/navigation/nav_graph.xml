@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment"/>
+        <action
+            android:id="@+id/action_FirstFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment" />
 
     </fragment>
 
@@ -30,6 +33,26 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment"/>
+        <action
+            android:id="@+id/action_SecondFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="com.example.dogcare.SettingsFragment"
+        android:label="@string/settings_fragment_label"
+        tools:layout="@layout/fragment_settings" >
+
+        <action
+            android:id="@+id/action_SettingsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"/>
+
+        <action
+            android:id="@+id/action_SettingsFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"/>
+
+    </fragment>
+
 </navigation>

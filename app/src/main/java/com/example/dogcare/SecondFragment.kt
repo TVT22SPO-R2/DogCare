@@ -2,21 +2,22 @@ package com.example.dogcare
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.dogcare.databinding.FragmentSecondBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import android.widget.Toast
-import java.util.Date
 
 
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private val db = FirebaseFirestore.getInstance()
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
 
     // This property is only valid between onCreateView and
@@ -93,3 +94,4 @@ class SecondFragment : Fragment() {
         _binding = null
     }
 }
+

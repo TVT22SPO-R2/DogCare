@@ -10,7 +10,7 @@
     <string name="give_pet_name">Pet name</string>
     <string name="select_targets">Select targeted options</string>
     <string name="string_delete">Delete</string>
-
+    <string name="settings_fragment_label">"Settings"</string>
 
     <string name="your_pet">Your pet</string>
     <string name="needs_attention">needs attention!</string>
