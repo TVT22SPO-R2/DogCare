@@ -1,42 +1,33 @@
-package com.example.dogcare
-
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dogcare.R
 
 class ActionAdapter(private val actions: List<String>) : RecyclerView.Adapter<ActionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // No need to define TextViews here since they will be added dynamically
+        private val actionContainer: LinearLayout = itemView.findViewById(R.id.actionContainer)
+
+        fun bind(actions: List<String>) {
+            actionContainer.removeAllViews()
+            for (action in actions) {
+                val textView = TextView(itemView.context)
+                textView.text = action
+                actionContainer.addView(textView)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_action, parent, false)
-        Log.d("Actions","Actions: $view")
         return ViewHolder(view)
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // Get the parent layout (LinearLayout)
-        val parentLayout = holder.itemView as LinearLayout
-
-        // Loop through the actions list and create TextViews dynamically
-        actions.forEach { action ->
-            val textView = TextView(parentLayout.context)
-            Log.d("Fs","Pet Actions: $textView")
-            textView.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            textView.text = action
-            Log.d("ActionAdapter","Adapters: $action")
-            parentLayout.addView(textView)
-        }
+        holder.bind(actions)
     }
 
     override fun getItemCount(): Int {

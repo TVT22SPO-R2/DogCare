@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.dogcare.databinding.FragmentSecondBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.dogcare.ActionAdapter
+import ActionAdapter
 
 class SecondFragment : Fragment() {
 
