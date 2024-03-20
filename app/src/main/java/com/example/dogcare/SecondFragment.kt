@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.dogcare.databinding.FragmentSecondBinding
 import com.google.firebase.firestore.FirebaseFirestore
-
+import com.example.dogcare.ActionAdapter
 
 class SecondFragment : Fragment() {
 
@@ -64,10 +64,18 @@ class SecondFragment : Fragment() {
 
                 val petName = petData["petName"]
                 val timestamp = petData["dateTime"]
+                val selectedActions = petData["selectedItems"] as? List<String>
 
                 Log.d("FetchPet2", "Pet Name2: $petName, Timestamp2: $timestamp")
+                Log.d("FetchActions","Pet Actions: $selectedActions")
 
                 binding.showPetName.text = "$petName\n$timestamp"
+
+
+                val adapter = ActionAdapter(selectedActions ?: listOf())
+                Log.d("FetchActions","Pet Actions: $adapter")// Ensure adapter is always initialized
+                binding.idActions.adapter = adapter
+
             } else {
 
                 Log.d("FetchPet3", "Pet not found or error occurred.")
@@ -94,4 +102,3 @@ class SecondFragment : Fragment() {
         _binding = null
     }
 }
-
