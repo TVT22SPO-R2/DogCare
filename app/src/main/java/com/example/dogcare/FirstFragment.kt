@@ -21,6 +21,11 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 
+import java.util.*
+import java.text.ParseException
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder // tai import android.app.AlertDialog, riippuen käyttämästäsi teemasta
+
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
@@ -51,6 +56,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.checkPetsButton.setOnClickListener {
+            checkPetsStatus()
+        }
 
         // Initialize RecycleView and adapter
         petsAdapter = PetsAdapter { petName ->
@@ -141,10 +150,49 @@ class FirstFragment : Fragment() {
                 dialog.dismiss()
             }
 
+
+
             // Create and show the dialog
             val alertDialog = alertDialogBuilder.create()
             alertDialog.show()
         }
+    }
+
+    fun checkPetsStatus() {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        Log.d(TAG, "Checking pets status...")
+        db.collection("pets")
+            .get()
+            .addOnSuccessListener { documents ->
+                Log.d(TAG, "Successfully retrieved ${documents.size()} pets.")
+                for (document in documents) {
+                    val dateTimeString = document.getString("dateTime") // Haetaan dateTime String-muodossa
+                    try {
+                        val lastActionDate = dateTimeString?.let { dateFormat.parse(it) } // Muunnetaan String Date-objektiksi
+                        lastActionDate?.let {
+                            // Tarkistetaan, onko viimeisestä toimenpiteestä kulunut yli 3 tuntia
+                            if (System.currentTimeMillis() - it.time > 3 * 60 * 60 * 1000) {
+                                // Yli 3 tuntia on kulunut, näytä pop-up
+                                val petName = document.getString("petName") ?: getString(R.string.your_pet)
+                                showAlert(petName, getString(R.string.needs_attention))
+                            }
+                        }
+                    } catch (e: ParseException) {
+                        Log.e(TAG, "Error parsing the date", e)
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun showAlert(petName: String, message: String) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(petName)
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     private fun setReminder(petName: String, message: String) {

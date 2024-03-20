@@ -12,4 +12,8 @@
     <string name="string_delete">Delete</string>
 
 
+    <string name="your_pet">Your pet</string>
+    <string name="needs_attention">needs attention!</string>
+    <string name="add_pet">Add Pet</string>
+    <string name="enter_pet_name_hint">Enter pet name</string>
 </resources>
