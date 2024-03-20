@@ -11,7 +11,7 @@
     <string name="select_targets">Select targeted options</string>
     <string name="string_delete">Delete</string>
     <string name="settings_fragment_label">"Settings"</string>
-
+    <string name="delete_button_description">"Delete Pet"</string>
     <string name="your_pet">Your pet</string>
     <string name="needs_attention">needs attention!</string>
     <string name="add_pet">Add Pet</string>
