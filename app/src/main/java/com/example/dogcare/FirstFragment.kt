@@ -24,6 +24,7 @@ import java.util.Locale
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 
 class FirstFragment : Fragment() {
 
@@ -58,7 +59,8 @@ class FirstFragment : Fragment() {
         }
 
         //Set layout manager and adapter for RecycleView
-        binding.recycleViewPets.layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.recycleViewPets.layoutManager = layoutManager
         binding.recycleViewPets.adapter = petsAdapter
 
         //Fetch pets
