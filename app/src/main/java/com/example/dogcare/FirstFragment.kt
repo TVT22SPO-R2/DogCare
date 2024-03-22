@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-
+import kotlinx.coroutines.*
 import java.util.*
 import java.text.ParseException
 
@@ -30,6 +30,8 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+
+import kotlin.random.Random
 
 class FirstFragment : Fragment() {
 
@@ -61,6 +63,11 @@ class FirstFragment : Fragment() {
             checkPetsStatus()
         }
 
+        // Example button setup to fetch and show activity
+        binding.fetchActivity.setOnClickListener {
+            fetchAndShowActivity()
+        }
+
         // Initialize RecycleView and adapter
         petsAdapter = PetsAdapter { petName ->
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(petName)
@@ -73,7 +80,6 @@ class FirstFragment : Fragment() {
         binding.recycleViewPets.adapter = petsAdapter
 
         //Fetch pets
-        //fetchPets()
         petFetch()
 
         binding.fab.setOnClickListener { view ->
@@ -158,6 +164,8 @@ class FirstFragment : Fragment() {
         }
     }
 
+
+
     fun checkPetsStatus() {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         Log.d(TAG, "Checking pets status...")
@@ -206,6 +214,34 @@ class FirstFragment : Fragment() {
         _binding = null
     }
 
+    // Could not find a API that does this, so had to make a list
+    private val petActivities = listOf(
+        "Go for a walk in the park.",
+        "Teach your pet a new trick.",
+        "Have a mini photoshoot with your pet.",
+        "Play hide and seek.",
+        "Set up a pet playdate with a friend's pet.",
+        "Try a DIY pet toy or treat recipe.",
+        "Have a relaxing pet spa day at home.",
+        "Visit a pet-friendly cafe or store.",
+        "Explore a new trail or beach together.",
+        "Have a picnic with your pet's favorite snacks.",
+        "Create a treasure hunt for your pet with their favorite treats.",
+        "Build an obstacle course in your backyard or living room for your pet.",
+        "Give your pet a gentle massage or grooming session."
+    )
+
+    private fun fetchAndShowActivity() {
+        // Randomly select an activity
+        val activity = petActivities[Random.nextInt(petActivities.size)]
+
+        // Using MaterialAlertDialogBuilder for the pop-up
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.pet_activity_title))
+            .setMessage(activity)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
+    }
 
 
     fun petFetch() {

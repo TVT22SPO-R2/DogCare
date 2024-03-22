@@ -30,4 +30,10 @@
         android:layout_height="wrap_content"
         android:text="Check Pets" />
 
+    <Button
+        android:id="@+id/fetchActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity" />
+
 </LinearLayout>
