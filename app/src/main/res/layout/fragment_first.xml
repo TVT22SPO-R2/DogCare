@@ -28,12 +28,17 @@
         android:id="@+id/checkPetsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Check Pets" />
+        android:text="Check Pets"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500" />
 
     <Button
         android:id="@+id/fetchActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Activity" />
+        android:text="Activity"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500" />
+
 
 </LinearLayout>

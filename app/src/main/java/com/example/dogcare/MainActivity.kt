@@ -4,21 +4,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.dogcare.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    /*private val TAG = "MainActivity"
-    private val checkBoxes = mutableListOf<CheckBox>()
-    private lateinit var petsAdapter: PetsAdapter
-    private val db = FirebaseFirestore.getInstance()*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,24 +22,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
+        // Find the theme switch button and attach a click listener to it
+        binding.themeSwitchButton.setOnClickListener {
+            // Toggle between light and dark mode when the button is clicked
+            toggleTheme()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu
         menuInflater.inflate(R.menu.menu_main, menu)
-            return true
+        return true
     }
-
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -60,16 +55,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-    /*fun updatePets() {
-        FirebaseUtils.fetchPets(db, petsAdapter)
-    }*/
 
+    // Function to toggle between light and dark theme
+    fun toggleTheme() {
+        // Toggle between light and dark mode
+        val currentNightMode = resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
+        val newNightMode = when (currentNightMode) {
+            android.content.res.Configuration.UI_MODE_NIGHT_NO -> {
+                AppCompatDelegate.MODE_NIGHT_YES
+            }
+            android.content.res.Configuration.UI_MODE_NIGHT_YES -> {
+                AppCompatDelegate.MODE_NIGHT_NO
+            }
+            else -> {
+                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            }
+        }
+        AppCompatDelegate.setDefaultNightMode(newNightMode)
+        recreate() // Recreate the activity to apply the new theme
+    }
 }
-

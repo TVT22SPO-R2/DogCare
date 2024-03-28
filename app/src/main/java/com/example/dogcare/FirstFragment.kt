@@ -3,6 +3,8 @@ package com.example.dogcare
 import PetsAdapter
 import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,27 +12,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.dogcare.databinding.FragmentFirstBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dogcare.R
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dogcare.FirstFragmentDirections
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.Locale
-
 import kotlinx.coroutines.*
 import java.util.*
 import java.text.ParseException
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder // tai import android.app.AlertDialog, riippuen käyttämästäsi teemasta
-
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
-
+import java.util.*
 import kotlin.random.Random
 
 class FirstFragment : Fragment() {
@@ -156,11 +153,18 @@ class FirstFragment : Fragment() {
                 dialog.dismiss()
             }
 
-
-
-            // Create and show the dialog
+            // Create the AlertDialog
             val alertDialog = alertDialogBuilder.create()
+
+            // Set text color for the buttons
+            alertDialog.setOnShowListener {
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(resources.getColor(R.color.orange2))
+                alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(resources.getColor(R.color.orange2))
+            }
+
+            // Show the AlertDialog
             alertDialog.show()
+
         }
     }
 

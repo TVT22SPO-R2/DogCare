@@ -12,6 +12,18 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/themeSwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Switch Theme"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:backgroundTint="@color/purple_500" />
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -20,7 +32,5 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

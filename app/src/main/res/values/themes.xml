@@ -5,5 +5,11 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.DogCare" parent="Base.Theme.DogCare" />
+    <style name="Theme.DogCare" parent="Base.Theme.DogCare">
+        <!-- Add your customizations for light theme here -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/light_gray</item>
+        <item name="colorAccent">@color/blue</item>
+        <!-- Add more customizations as needed -->
+    </style>
 </resources>
