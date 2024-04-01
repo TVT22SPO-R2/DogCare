@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogcare.R
 
-class ActionAdapter(private val actions: List<String>) : RecyclerView.Adapter<ActionAdapter.ViewHolder>() {
+class ActionAdapter(private val actions: List<String>, private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<ActionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val actionContainer: LinearLayout = itemView.findViewById(R.id.actionContainer)
@@ -16,6 +16,9 @@ class ActionAdapter(private val actions: List<String>) : RecyclerView.Adapter<Ac
             for (action in actions) {
                 val textView = TextView(itemView.context)
                 textView.text = action
+                textView.setOnClickListener {
+                    onItemClick(action)
+                }
                 actionContainer.addView(textView)
             }
         }
@@ -31,6 +34,13 @@ class ActionAdapter(private val actions: List<String>) : RecyclerView.Adapter<Ac
     }
 
     override fun getItemCount(): Int {
-        return 1 // Since we're creating TextViews dynamically, we only need one item
+        return actions.size
     }
+
+
+
+
+
+
+
 }

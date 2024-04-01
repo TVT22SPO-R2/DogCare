@@ -1,13 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/showPetName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textAlignment="center"
         android:textSize="18sp" />
@@ -20,12 +20,24 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <Button
+        android:id="@+id/fetchTimeStamps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Last time tasks were done"
+        android:onClick="fetchTimestamps"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"/>
+
+    <Button
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/previous"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:backgroundTint="@color/purple_500" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,10 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_menu_delete"
-        android:contentDescription="@string/delete_button_description"/>
-
+        android:contentDescription="@string/delete_button_description" />
 
 </LinearLayout>
