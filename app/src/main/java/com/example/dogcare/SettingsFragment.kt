@@ -4,19 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import PetsAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-interface PetDeleteListener {
-    fun onDeletePet(petName: String)
-}
-
-class SettingsFragment : Fragment(), PetDeleteListener {
+class SettingsFragment : Fragment() {
 
     private lateinit var adapter: PetsAdapter
+    private lateinit var tvInformation: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,25 +29,24 @@ class SettingsFragment : Fragment(), PetDeleteListener {
         adapter = PetsAdapter(
             onItemClick = { petName ->
                 // Handle item click here
-            },
+            }
         )
         recyclerView.adapter = adapter
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        return view
-    }
+        // Initialize TextView
+        tvInformation = view.findViewById(R.id.tvInformation)
+        tvInformation.text = "This app helps pet owners to keep track of their pets\n\n\n\nCreators:\n\n\nToni Isopoussu\n\nJyri Karhu\n\nHenri Mustakangas\n\nEelis Keränen\n\nNiko Matilainen"
+        tvInformation.setTextColor(resources.getColor(R.color.orange2))
+        tvInformation.visibility = View.GONE // Hide initially
 
-    override fun onDeletePet(petName: String) {
-        AlertDialog.Builder(requireContext())
-            .setTitle("Delete Pet")
-            .setMessage("Are you sure you want to delete $petName?")
-            .setPositiveButton("Delete") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
+        val fab: FloatingActionButton = view.findViewById(R.id.fab)
+        fab.setOnClickListener {
+            // Show the text when the FAB is pressed
+            tvInformation.visibility = View.VISIBLE
+        }
+
+        return view
     }
 }
