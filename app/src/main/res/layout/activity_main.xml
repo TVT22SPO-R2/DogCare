@@ -20,6 +20,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/white"
             android:text="Switch Theme"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:backgroundTint="@color/purple_500" />

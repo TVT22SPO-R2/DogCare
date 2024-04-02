@@ -57,9 +57,9 @@ class SecondFragment : Fragment() {
                 fetchPet(petName)
             }
 
-        binding.buttonFirst.setOnClickListener {
+        /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+        }*/
         binding.fabDelete.setOnClickListener {
             if (!petName.isNullOrEmpty()) {
                 deletePet(petName)
@@ -115,6 +115,7 @@ class SecondFragment : Fragment() {
     }
 
 
+
     private fun storeTimeStampToDatabase(petName: Any?, action: String, timestamp: String){
         val data = hashMapOf(
             "petName" to petName,
@@ -158,6 +159,7 @@ class SecondFragment : Fragment() {
                 }
         }
     }
+
 
 
     private fun showTimestampsDialog(timestampsMap: Map<String, String>) {

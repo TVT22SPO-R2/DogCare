@@ -6,21 +6,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogcare.R
 
+
 class ActionAdapter(private val actions: List<String>, private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<ActionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val actionContainer: LinearLayout = itemView.findViewById(R.id.actionContainer)
+        private val actionTextView: TextView = itemView.findViewById(R.id.actionTextView)
 
-        fun bind(actions: List<String>) {
-            actionContainer.removeAllViews()
-            for (action in actions) {
-                val textView = TextView(itemView.context)
-                textView.text = action
-                textView.setOnClickListener {
-                    onItemClick(action)
+        init {
+            actionTextView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(actions[position])
                 }
-                actionContainer.addView(textView)
             }
+        }
+
+        fun bind(action: String) {
+            actionTextView.text = action
         }
     }
 
@@ -30,17 +32,10 @@ class ActionAdapter(private val actions: List<String>, private val onItemClick: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(actions)
+        holder.bind(actions[position])
     }
 
     override fun getItemCount(): Int {
         return actions.size
     }
-
-
-
-
-
-
-
 }
